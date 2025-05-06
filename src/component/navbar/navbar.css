@@ -1,0 +1,12 @@
+.my-scroll-container::-webkit-scrollbar {
+  width: 8px; /* Đặt chiều rộng của thanh cuộn */
+}
+
+.my-scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-gray); /* Đặt màu cho thanh cuộn */
+  border-radius: 10px;
+}
+
+.my-scroll-container::-webkit-scrollbar-track {
+  background: transparent; /* Đặt màu cho track */
+}
