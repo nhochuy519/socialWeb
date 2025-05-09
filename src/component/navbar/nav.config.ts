@@ -6,22 +6,22 @@ import { MdGroups, MdOutlinePersonalVideo } from "react-icons/md";
 
 const navItems: NavItem[] = [
   {
-    icon: PiTelevisionSimple,
+    icon: "/news.png",
     name: "Newsfeed",
     route: "/home",
   },
   {
-    icon: FaUserFriends,
+    icon: "/friends.png",
     name: "Friends",
     route: "/friends",
   },
   {
-    icon: MdGroups,
+    icon: "/group.png",
     name: "Groups",
     route: "/groups",
   },
   {
-    icon: MdOutlinePersonalVideo,
+    icon: "/video.png",
     name: "Video",
     route: "/watch",
   },

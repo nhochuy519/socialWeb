@@ -1,10 +1,15 @@
+"use client";
 import { PiTelevisionSimple } from "react-icons/pi";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 import Link from "next/link";
 import Image from "next/image";
 import "./navbar.css";
 
 import navItems from "./nav.config";
 import { NavItem } from "./nav.interface";
+
+import NavItemComp from "../navItem/NavItem";
 const Navbar = () => {
   return (
     <div className="basis-[20%]   ">
@@ -26,15 +31,12 @@ const Navbar = () => {
           </Link>
           {navItems.map((item: NavItem, index: number) => {
             return (
-              <Link href={item.route} key={index}>
-                <div className="hover:bg-[var(--hover-gray)]  flex items-center gap-2 p-2  cursor-pointer rounded-2xl">
-                  <div className=" flex items-center justify-center cursor-pointer bg-[var(--tw-color-hover)] rounded-full p-2 text-white ">
-                    <item.icon className="text-3xl" />
-                  </div>
-
-                  <div>{item.name}</div>
-                </div>
-              </Link>
+              <NavItemComp
+                href={item.route}
+                name={item.name}
+                key={index}
+                imageShow={item.icon}
+              />
             );
           })}
         </div>
@@ -43,17 +45,10 @@ const Navbar = () => {
           <div className="p-2 text-lg">Groups</div>
           {navItems.map((item: NavItem, index: number) => {
             return (
-              <Link href={item.route} key={index}>
-                <div className="hover:bg-[var(--hover-gray)]  flex items-center gap-2 p-2  cursor-pointer rounded-2xl">
-                  <div className=" flex items-center justify-center cursor-pointer bg-[var(--tw-color-hover)] rounded-full p-2 text-white ">
-                    <item.icon className="text-3xl" />
-                  </div>
-
-                  <div>{item.name}</div>
-                </div>
-              </Link>
+              <NavItemComp name={item.name} key={index} Icon={item.icon} />
             );
           })}
+          <NavItemComp name={"More"} Icon={MdKeyboardArrowDown} />
         </div>
       </div>
     </div>

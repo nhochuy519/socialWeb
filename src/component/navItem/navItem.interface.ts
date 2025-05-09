@@ -2,9 +2,11 @@ import { IconType } from "react-icons";
 
 export interface NavItemProps {
   href?: string;
-  icon: IconType;
+  rouded?: boolean;
+  imageShow: string;
   name: string;
-  route?: string;
+  avatar?: string;
   status?: boolean;
+  isOnline?: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
