@@ -27,12 +27,12 @@ const NavItemComp: React.FC<NavItemProps> = ({
   return (
     <Comp {...props}>
       <div className="hover:bg-[var(--hover-gray)]  flex items-center gap-2 p-2  cursor-pointer rounded-2xl">
-        <div className=" flex items-center justify-center cursor-pointer  overflow-hidden  ">
+        <div className=" flex items-center justify-center cursor-pointer  overflow-hidden   ">
           {imageShow ? (
             <Image
               src={imageShow}
-              width={46}
-              height={46}
+              width={36}
+              height={36}
               alt="Picture of the author"
               className={rouded ? "rounded-full" : ""}
             />

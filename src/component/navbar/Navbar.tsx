@@ -12,7 +12,7 @@ import { NavItem } from "./nav.interface";
 import NavItemComp from "../navItem/NavItem";
 const Navbar = () => {
   return (
-    <div className="basis-[20%]   ">
+    <div className="basis-[20%] pt-[70px] ">
       <div className="flex flex-col my-scroll-container sticky top-[76px]  bg-white bottom-0  h-screen overflow-y-hidden hover:overflow-y-auto scrollbar-thumb-slate-700 scrollbar-track-slate-300">
         <div>
           <Link href={"/profile"}>
@@ -45,10 +45,15 @@ const Navbar = () => {
           <div className="p-2 text-lg">Groups</div>
           {navItems.map((item: NavItem, index: number) => {
             return (
-              <NavItemComp name={item.name} key={index} Icon={item.icon} />
+              <NavItemComp
+                name={item.name}
+                key={index}
+                imageShow={"/riven.png"}
+                rouded={true}
+              />
             );
           })}
-          <NavItemComp name={"More"} Icon={MdKeyboardArrowDown} />
+          <NavItemComp name={"More"} imageShow={"/down-arrow.png"} />
         </div>
       </div>
     </div>
