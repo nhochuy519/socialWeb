@@ -8,5 +8,10 @@ export interface NavItemProps {
   avatar?: string;
   status?: boolean;
   isOnline?: boolean;
+  lastTextChat?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  textSize?: "text-lg" | "text-sm";
+  imageSize?: "56" | "36";
+  readMessageStatus?: boolean;
+  iconChat?: boolean;
 }

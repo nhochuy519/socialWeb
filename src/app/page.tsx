@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { PiTelevisionSimple } from "react-icons/pi";
 import Link from "next/link";
@@ -6,9 +8,15 @@ import Contact from "@/component/contactPeople/Contact";
 
 import Posts from "@/component/posts/Posts";
 
+import ChatPopUp from "@/component/chatPopUp/ChatComp";
+
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { AppDispatch } from "@/store";
 export default function Home() {
+  const value = useSelector((state: RootState) => state.chatReduder.isOpen);
   return (
-    <div className="flex justify-between ">
+    <div className="flex justify-between relative ">
       {/* Left Sidebar */}
       <Navbar />
 
@@ -19,6 +27,12 @@ export default function Home() {
 
       {/* Right Sidebar */}
       <Contact />
+
+      {value && (
+        <div className="fixed bottom-4 right-10 z-[100000]">
+          <ChatPopUp />
+        </div>
+      )}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 const ButtonIcon: React.FC<ButtonType> = ({
   children,
   icon,
-  name,
+  text,
   className,
 }) => {
   return (
@@ -18,7 +18,7 @@ const ButtonIcon: React.FC<ButtonType> = ({
         height={24}
         alt="icon"
       />
-      <div> click</div>
+      <div> {text}</div>
     </div>
   );
 };

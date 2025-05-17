@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    domains: ["cdna.artstation.com"], // thêm domain bạn muốn dùng
+  },
   /* config options here */
   async redirects() {
     return [

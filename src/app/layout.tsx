@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Header from "@/component/header/header";
 
+import { ReduxProvider } from "./providers";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,13 +36,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
-        <div className="w-full ">
-          <Header />
-          <div className="w-full  m-auto p-4 bg-gray-100  min-h-screen ">
-            {" "}
-            {children}
+        <ReduxProvider>
+          <div className="w-full ">
+            <Header />
+            <div className="w-full  m-auto p-4 bg-gray-100  min-h-screen ">
+              {" "}
+              {children}
+            </div>
           </div>
-        </div>
+        </ReduxProvider>
       </body>
     </html>
   );

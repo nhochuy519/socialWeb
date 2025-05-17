@@ -6,6 +6,7 @@ import { NavItemProps } from "./navItem.interface";
 import Link from "next/link";
 import Image from "next/image";
 import { CiUser } from "react-icons/ci";
+
 const NavItemComp: React.FC<NavItemProps> = ({
   href,
   rouded,
@@ -13,11 +14,18 @@ const NavItemComp: React.FC<NavItemProps> = ({
   imageShow,
   isOnline = false,
   status,
+  lastTextChat,
+  textSize,
+  imageSize = 36,
+  readMessageStatus = false,
+  iconChat = false,
   onClick,
 }) => {
   const [online, setOnline] = useState<boolean>(isOnline);
+  const [readMessage, setReadMessages] = useState<boolean>(readMessageStatus);
   const props: { [subject: string]: unknown } = {};
   const Comp: React.ElementType = href ? Link : "div";
+
   if (href) {
     props["href"] = href;
   }
@@ -27,26 +35,42 @@ const NavItemComp: React.FC<NavItemProps> = ({
   return (
     <Comp {...props}>
       <div className="hover:bg-[var(--hover-gray)]  flex items-center gap-2 p-2  cursor-pointer rounded-2xl">
-        <div className=" flex items-center justify-center cursor-pointer  overflow-hidden   ">
+        <div className=" flex items-center justify-center cursor-pointer   relative rounded-full ">
           {imageShow ? (
             <Image
               src={imageShow}
-              width={36}
-              height={36}
+              width={imageSize}
+              height={imageSize}
               alt="Picture of the author"
               className={rouded ? "rounded-full" : ""}
             />
           ) : (
             <CiUser className="text-3xl" />
           )}
+          {online && (
+            <div className="w-2 h-2 bg-green-500 absolute right-0 rounded-full bottom-0"></div>
+          )}
+          {iconChat && (
+            <div className=" absolute right-0 rounded-full bottom-0">
+              <Image
+                src={"/chatIcon.png"}
+                width={20}
+                height={20}
+                alt="Chat icon"
+              />
+            </div>
+          )}
         </div>
 
-        <div>{name}</div>
+        <div className={`${textSize}`}>
+          <div> {name}</div>
+          <div>{lastTextChat}</div>
+        </div>
         {status &&
-          (online ? (
-            <div className="w-2 h-2 bg-green-500 rounded-full absolute right-4"></div>
+          (readMessage ? (
+            <div className="w-2 h-2 bg-blue-500 rounded-full absolute right-4"></div>
           ) : (
-            <div className="w-2 h-2 bg-red-500 rounded-full absolute right-4"></div>
+            <div></div>
           ))}
       </div>
     </Comp>
