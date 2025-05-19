@@ -1,6 +1,8 @@
 import CreatePage from "../createPage/CreatePage";
 
-import SliderStory from "../sliderStory/SliderStory";
+import SliderCard from "../sliderStory/SliderStory";
+
+import StorySLide from "../storySlide/StorySlide";
 
 import Post from "../post/Post";
 
@@ -10,7 +12,18 @@ const Posts = () => {
       <CreatePage />
 
       <div className="w-full py-2">
-        <SliderStory />
+        <SliderCard
+          card={StorySLide}
+          data={[
+            { name: "Huy", imageUrl: "/riven.png", mutualFriends: 10 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+            { name: "Minh", imageUrl: "/riven.png", mutualFriends: 5 },
+          ]}
+        />
       </div>
 
       <div className="flex flex-col gap-5">

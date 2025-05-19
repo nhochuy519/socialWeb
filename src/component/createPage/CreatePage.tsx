@@ -1,6 +1,13 @@
 import Image from "next/image";
 
+import { BsCameraVideo } from "react-icons/bs";
+import { AiOutlinePicture } from "react-icons/ai";
+
 import ButtonIcon from "../buttonIcon/ButtonIcon";
+import { HiOutlineEmojiHappy } from "react-icons/hi";
+
+import { Button } from "@/components/ui/button";
+
 const CreatePage = () => {
   return (
     <div className=" bg-white items-center rounded-xl  pt-[12px] pb-[10px] px-[16px]">
@@ -22,9 +29,13 @@ const CreatePage = () => {
       </div>
       <div className="h-[1px] bg-gray-100 w-full mt-[10px]"></div>
       <div className="flex items-center w-full pt-2">
-        <ButtonIcon className="flex-1" />
-        <ButtonIcon className="flex-1" />
-        <ButtonIcon className="flex-1" />
+        <ButtonIcon className="flex-1" text="video" icon={BsCameraVideo} />
+        <ButtonIcon className="flex-1" text="picture" icon={AiOutlinePicture} />
+        <ButtonIcon
+          className="flex-1"
+          text="emotional activity"
+          icon={HiOutlineEmojiHappy}
+        />
       </div>
     </div>
   );

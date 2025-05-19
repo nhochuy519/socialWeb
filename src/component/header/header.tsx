@@ -110,7 +110,7 @@ const Header = () => {
 
           {/* Avatar */}
           <div className="rounded-full h-10 w-10 overflow-hidden ml-4 cursor-pointer ">
-            <Link href={"/settings"}>
+            <Link href={"/profile"}>
               <Image
                 src={"/riven.png"}
                 width={500}

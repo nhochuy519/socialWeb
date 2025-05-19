@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -8,7 +9,12 @@ import { useRef, useState } from "react";
 import CustomArrow from "../customArrows/CustomArrow";
 import StorySLide from "../storySlide/StorySlide";
 
-const SliderStory = () => {
+interface ChildCard<T> {
+  card: React.ComponentType<T>;
+  data: T[];
+}
+
+const SliderCard = <T,>({ card: Card, data }: ChildCard<T>) => {
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 30;
@@ -39,9 +45,9 @@ const SliderStory = () => {
   return (
     <div className="bg-white w-full mt-4 p-2 bg-gray-100 rounded-lg shadow-md relative overflow-hidden">
       <Slider ref={sliderRef} {...settings}>
-        {[...Array(totalSlides)].map((_, index) => (
+        {data.map((item, index) => (
           <div key={index} className="mr-2 w-[100px]">
-            <StorySLide />
+            <Card {...item} />
           </div>
         ))}
       </Slider>
@@ -49,4 +55,4 @@ const SliderStory = () => {
   );
 };
 
-export default SliderStory;
+export default SliderCard;

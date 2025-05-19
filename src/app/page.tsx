@@ -12,7 +12,7 @@ import ChatPopUp from "@/component/chatPopUp/ChatComp";
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { AppDispatch } from "@/store";
+
 export default function Home() {
   const value = useSelector((state: RootState) => state.chatReduder.isOpen);
   return (
