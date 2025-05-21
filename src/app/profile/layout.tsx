@@ -15,7 +15,41 @@ import StorySLide from "@/component/storySlide/StorySlide";
 
 import FriendCard from "@/component/slideFriend/FriendCard";
 
+import Link from "next/link";
+
+import { useRouter, usePathname } from "next/navigation";
+
+interface RouteProfile {
+  title: string;
+  href: string;
+}
+
+const routeProfilePage: RouteProfile[] = [
+  {
+    title: "Post",
+    href: "/profile",
+  },
+  {
+    title: " about",
+    href: "/profile/about",
+  },
+  {
+    title: "Friends",
+    href: "/profile/friends",
+  },
+  {
+    title: "Photos",
+    href: "/profile/photos",
+  },
+  {
+    title: "Videos",
+    href: "/profile/videos",
+  },
+];
+
 const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
+  const patch = usePathname();
+  console.log(patch);
   return (
     <div className="pt-[76px]">
       <div className="max-w-[1100px] bg-white mx-auto ">
@@ -70,7 +104,29 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
             ]}
           />
         </div>
-        <div>{children}</div>
+        <div className="flex pt-[2px] mt-2 p-2">
+          {routeProfilePage.map((item: RouteProfile, index: number) => {
+            return (
+              <Link href={item.href} key={index}>
+                <div className="  w-fit  ">
+                  <Button
+                    className={`${
+                      item.href === patch
+                        ? "bg-white  text-[var(--tw-color-hover)]"
+                        : "bg-white text-gray-500"
+                    } hover:bg-gray-100`}
+                  >
+                    {item.title}
+                  </Button>
+                  {item.href === patch && (
+                    <div className="w-full h-[2px] bg-[var(--tw-color-hover)]"></div>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        <div className="bg-gray-100">{children}</div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { HiOutlineEmojiHappy } from "react-icons/hi";
 
 import { Button } from "@/components/ui/button";
 
-const CreatePage = () => {
+const CreatePost = () => {
   return (
     <div className=" bg-white items-center rounded-xl  pt-[12px] pb-[10px] px-[16px]">
       <div className="flex gap-2 ">
@@ -41,4 +41,4 @@ const CreatePage = () => {
   );
 };
 
-export default CreatePage;
+export default CreatePost;

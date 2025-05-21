@@ -1,4 +1,4 @@
-import CreatePage from "../createPage/CreatePage";
+import CreatePost from "../createPage/CreatePage";
 
 import SliderCard from "../sliderStory/SliderStory";
 
@@ -9,7 +9,7 @@ import Post from "../post/Post";
 const Posts = () => {
   return (
     <div className="posts ">
-      <CreatePage />
+      <CreatePost />
 
       <div className="w-full py-2">
         <SliderCard

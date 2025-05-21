@@ -61,13 +61,11 @@ const Header = () => {
 
   return (
     <header className="z-9999 shadow-md fixed top-0 left-0 right-0 bg-white ">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-3">
         <Link href={"/"}>
-          <div className="flex items-center justify-center cursor-pointer">
-            <span className="text-[var(--tw-color-hover)] text-3xl font-medium">
-              H
-            </span>
-            <span className="text-green-500 text-3xl font-bold ">Social</span>
+          <div className="w-[70px] h-[50px] relative">
+            {" "}
+            <Image src={"/newLogo.png"} fill alt="logoweb" objectFit="cover" />
           </div>
         </Link>
 
