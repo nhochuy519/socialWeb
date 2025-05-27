@@ -9,7 +9,7 @@ import Post from "@/component/post/Post";
 
 const Page = () => {
   return (
-    <div className="flex mt-4 gap-4 pt-5 ">
+    <div className="flex mt-4 gap-4 ">
       {/* SIDEBAR */}
       <div className="basis-1/3">
         <div className="sticky top-2 space-y-4">

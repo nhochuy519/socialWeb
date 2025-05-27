@@ -52,7 +52,7 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
   console.log(patch);
   return (
     <div className="pt-[76px]">
-      <div className="max-w-[1100px] bg-white mx-auto ">
+      <div className="max-w-[1100px]  mx-auto ">
         <div className="rounded-bl-2xl rounded-br-2xl h-[400px] w-full bg-[url('https://cdnb.artstation.com/p/assets/images/images/072/485/995/4k/chengwei-pan-1.jpg?1707463211')] bg-cover bg-center bg-no-repeat"></div>
         <div className="flex items-center justify-between p-5 ">
           <div className="flex items-center gap-5 ">
