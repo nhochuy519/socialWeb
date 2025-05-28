@@ -12,8 +12,12 @@ import PostImages from "../postImages/PostImages";
 import { imagesArray } from "../postImages/images.config";
 import ButtonIcon from "../buttonIcon/ButtonIcon";
 
-const Post = () => {
+import { Post as PostItf } from "@/types/post.interface";
+
+const Post = (props: PostItf) => {
   const [lineClamp, setLineClamp] = useState<number | string>(1);
+
+  console.log("itemPost la", props);
 
   console.log(lineClamp);
   const handleLineClamp = () => {

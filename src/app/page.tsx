@@ -13,8 +13,15 @@ import ChatPopUp from "@/component/chatPopUp/ChatComp";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
+import { useEffect, useState } from "react";
+
+import instance from "@/lib/axiosInstance";
+
+import { Post as PostItf } from "@/types/post.interface";
+
 export default function Home() {
   const value = useSelector((state: RootState) => state.chatReduder.isOpen);
+
   return (
     <div className="flex justify-between relative ">
       {/* Left Sidebar */}

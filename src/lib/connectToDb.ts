@@ -15,7 +15,7 @@ export const connectToDb = async (): Promise<void> => {
     }
 
     //! đảm bảo biến nầy không bị undefined
-    await mongoose.connect(process.env.DATABASE_MONGO_URI!);
+    await mongoose.connect(process.env.DATABASE_MONGO!);
     console.log("Connected to MongoDB");
     connection.isConnected = mongoose.connection.readyState;
   } catch (error) {
