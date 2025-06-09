@@ -8,7 +8,12 @@ import { HiOutlineEmojiHappy } from "react-icons/hi";
 
 import { Button } from "@/components/ui/button";
 
+import { useDispatch } from "react-redux";
+import { openModal } from "@/store/modalSlice";
+import { AppDispatch } from "@/store";
+
 const CreatePost = () => {
+  const dispatch: AppDispatch = useDispatch();
   return (
     <div className=" bg-white items-center rounded-xl  pt-[12px] pb-[10px] px-[16px]">
       <div className="flex gap-2 ">
@@ -22,7 +27,12 @@ const CreatePost = () => {
           />
         </div>
         <div className="w-full">
-          <button className="w-full bg-[var(--hover-gray)] text-left rounded-full p-2 hover:bg-gray-200">
+          <button
+            onClick={() => {
+              dispatch(openModal());
+            }}
+            className="w-full bg-[var(--hover-gray)] text-left rounded-full p-2 hover:bg-gray-200"
+          >
             What are you thinking?
           </button>
         </div>

@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import chatReduder from "./chatSlice";
+import modalReducer from "./modalSlice";
 
 export const store = configureStore({
   reducer: {
-    chatReduder,
+    chat: chatReduder,
+    modal: modalReducer,
   },
 });
 

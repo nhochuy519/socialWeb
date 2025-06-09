@@ -75,7 +75,7 @@ const Post = (props: PostItf) => {
           </div>
         )}
         <div className="w-full">
-          <PostImages images={imagesArray} />
+          {/* <PostImages images={imagesArray} /> */}
         </div>
         <div className="flex flex aligt justify-between items-center mx-3 py-[6px] cursor-pointer">
           <div className="flex items-center gap-2">

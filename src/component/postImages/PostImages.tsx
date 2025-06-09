@@ -1,13 +1,14 @@
-import { ImageType } from "./image.type";
+import { string } from "./image.type";
 import Image from "next/image";
 
-const PostImages = ({ images }: { images: ImageType[] }) => {
+const PostImages = ({ images }: { images: string[] }) => {
+  console.log("image", images[0]);
   if (images.length <= 1) {
     return (
       <div className="w-full h-[500px]">
         <div className="relative w-full h-full">
           <Image
-            src="https://cdna.artstation.com/p/assets/images/images/084/657/670/4k/chengwei-pan-1.jpg?1738870146"
+            src={images[0]}
             alt="test image post"
             fill
             className="object-cover "
@@ -16,8 +17,8 @@ const PostImages = ({ images }: { images: ImageType[] }) => {
       </div>
     );
   } else {
-    const imageRow1: ImageType[] = images.slice(0, 2);
-    const imageRow2: ImageType[] = images.slice(2, 5);
+    const imageRow1: string[] = images.slice(0, 2);
+    const imageRow2: string[] = images.slice(2, 5);
 
     return (
       <div className="flex flex-col w-full h-[500px] gap-2">
@@ -26,10 +27,10 @@ const PostImages = ({ images }: { images: ImageType[] }) => {
             imageRow2.length > 0 ? "h-[50%]" : "h-full"
           } gap-2`}
         >
-          {imageRow1.map((image: ImageType, index: number) => (
+          {imageRow1.map((image: string, index: number) => (
             <div className="relative w-full h-full" key={index}>
               <Image
-                src="https://cdna.artstation.com/p/assets/images/images/084/657/670/4k/chengwei-pan-1.jpg?1738870146"
+                src={image}
                 alt="test image post"
                 fill
                 className="object-cover "
@@ -40,10 +41,10 @@ const PostImages = ({ images }: { images: ImageType[] }) => {
 
         {imageRow2.length > 0 && (
           <div className="flex w-full h-[50%] gap-2  ">
-            {imageRow2.map((image: ImageType, index: number) => (
+            {imageRow2.map((image: string, index: number) => (
               <div className="relative w-full " key={index}>
                 <Image
-                  src="https://cdna.artstation.com/p/assets/images/images/084/657/670/4k/chengwei-pan-1.jpg?1738870146"
+                  src={image}
                   alt="test image post"
                   fill
                   className="object-cover "

@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
+
       unique: true,
       trim: true,
       lowercase: true,
@@ -29,20 +29,19 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin"],
       default: "user",
     },
+    provider: {
+      type: String,
+    },
     password: {
       type: String,
-      required: [true, "Please provide a password"],
+      // required: [true, "Please provide a password"],
       minlength: [8, "A password must have more or equal then 8 character"],
       select: false, // không trả về password khi lấy dữ liệu
     },
     passwordConfirm: {
       type: String,
-      required: [true, "Please confirm your password"],
+      // required: [true, "Please confirm your password"],
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      validate: function (this: any, value: string): boolean {
-        // this chỉ hoạt động với create và save
-        return value === this.password;
-      },
     },
     address: String,
     phone: String,

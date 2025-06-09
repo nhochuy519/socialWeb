@@ -1,3 +1,5 @@
+"use client";
+
 import { FaHouseChimney } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 import { Button } from "@/components/ui/button";

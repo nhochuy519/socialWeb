@@ -12,6 +12,10 @@ import styles from "./header.module.css";
 import MenuDropDown from "../menu/MenuDd";
 import MenuChat from "../menu/MenuChat/MenuChat";
 import MenuNotify from "../menu/MenuNotify/MenuNotify";
+import MenuUser from "../menu/MenuUser/MenuUser";
+
+import { useSession } from "next-auth/react";
+import { Session } from "next-auth";
 
 type CurrentMenu = {
   comp: React.ComponentType;
@@ -19,6 +23,18 @@ type CurrentMenu = {
 };
 
 const Header = () => {
+  const [user, setUser] = useState<Session["user"] | null>(null);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session?.user) {
+      setUser(session.user);
+      console.log(session);
+    }
+  }, [session]);
+
+  console.log("user là", user);
+
   const [menu, setMenu] = useState<CurrentMenu>({
     comp: () => null,
     active: false,
@@ -26,6 +42,7 @@ const Header = () => {
 
   const notifyRef = useRef<HTMLDivElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleMenuDropDown = (comp: React.ComponentType) => {
@@ -47,7 +64,8 @@ const Header = () => {
       if (
         !notifyRef.current?.contains(event.target as Node) &&
         !chatRef.current?.contains(event.target as Node) &&
-        !dropdownRef.current?.contains(event.target as Node)
+        !dropdownRef.current?.contains(event.target as Node) &&
+        !menuRef.current?.contains(event.target as Node)
       ) {
         setMenu({ comp: () => null, active: false });
       }
@@ -107,15 +125,19 @@ const Header = () => {
           </div>
 
           {/* Avatar */}
-          <div className="rounded-full h-10 w-10 overflow-hidden ml-4 cursor-pointer ">
-            <Link href={"/profile"}>
-              <Image
-                src={"/riven.png"}
-                width={500}
-                height={500}
-                alt="Picture of the author"
-              />
-            </Link>
+          <div
+            ref={menuRef}
+            className="rounded-full h-10 w-10 overflow-hidden ml-4 cursor-pointer "
+            onClick={() => handleMenuDropDown(MenuUser)}
+          >
+            {/* <Link href={"/profile"}> */}
+            <Image
+              src={user ? user.image : "/riven.png"}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+            {/* </Link> */}
           </div>
         </div>
       </div>
