@@ -3,6 +3,7 @@ import { connectToDb } from "@/lib/connectToDb";
 import User from "@/lib/model/User";
 
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 
 import bcrypt from "bcryptjs";
 
@@ -11,6 +12,7 @@ export const POST = async (req: Request) => {
     console.log("thực hiện post");
     await connectToDb();
     const { username, password, passwordConfirm } = await req.json();
+    // await mongoose.connection.collection("users").dropIndex("email_1");
 
     if (!username || !password || !passwordConfirm) {
       return NextResponse.json(
@@ -32,6 +34,7 @@ export const POST = async (req: Request) => {
     }
     console.log("thực hiện tìm kiếm");
     const findUsername = await User.findOne({ username });
+
     if (findUsername) {
       return NextResponse.json(
         {

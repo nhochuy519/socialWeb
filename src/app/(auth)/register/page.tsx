@@ -51,7 +51,7 @@ export default function RegisterPage() {
     if (isValid) {
       try {
         const data = { username, password, passwordConfirm: confirmPassword };
-        const res = await instance.post("/register", data);
+        const res = await instance.post("/user/register", data);
 
         if (res.status !== 201) {
           setErrorMessage(res.data.message);

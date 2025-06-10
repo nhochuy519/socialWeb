@@ -6,11 +6,11 @@ import Image from "next/image";
 import { login } from "@/lib/actions/auth";
 
 import { signIn } from "next-auth/react";
-
+import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -18,12 +18,16 @@ export default function LoginPage() {
       redirect: false,
       username,
       password,
+      callbackUrl: "/",
     });
 
     if (res?.error) {
-      console.error("Login failed:", res.error);
+      alert("Incorrect account or password");
+      setUsername("");
+      setPassword("");
     } else {
-      console.log("Đăng nhập thành công");
+      alert("Đăng nhập thành công");
+      router.push("/");
     }
   };
 

@@ -6,8 +6,10 @@ import User from "./lib/model/User";
 import bcrypt from "bcryptjs";
 
 import Credentials from "next-auth/providers/credentials";
+import { authConfig } from "./lib/auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -69,5 +71,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       return true;
     },
+    ...authConfig.callbacks,
   },
 });
